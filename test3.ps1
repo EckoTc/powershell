@@ -4,11 +4,11 @@ write-host 2 - Install Qualys
 write-host 3 - Install Dell Command Update
 write-host 4 - Install Bomgar
 write-host 5 - Install Power Settings
-write-host 6 - Test test
-write-host 7 - Test test
-write-host 8 - Test test
-write-host 9 - Test test
-write-host 10 - Test test
+write-host 6 - Fix Snip and Sketch
+#write-host 7 - Test test
+#write-host 8 - Test test
+#write-host 9 - Test test
+#write-host 10 - Test test
 
 $choice = read-host "Please select a number"
 
@@ -35,6 +35,11 @@ if ( $choice -eq 4 )
 if ( $choice -eq 5 )
 {
         Write-Output "you selected 5"
+}
+
+if ( $choice -eq 6 )
+{
+        Get-AppxPackage -allusers Microsoft.ScreenSketch | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 }
 
 
