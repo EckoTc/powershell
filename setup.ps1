@@ -62,4 +62,4 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercon
 #>
 
 
-pause
+#https://git.io/Jya4q
