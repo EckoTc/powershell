@@ -38,4 +38,4 @@ if ( $choice -eq 5 )
 }
 
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/EckoTc/powershell/main/test3.ps1'))
+#iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/EckoTc/powershell/main/test3.ps1'))
