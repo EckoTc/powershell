@@ -14,7 +14,7 @@ $choice = read-host "Please select a number"
 
 if ( $choice -eq 1 )
 {
-        Write-Output "you selected 1"
+       iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/EckoTc/Pulse/main/vpntest1.ps1'))
 }
 
 if ( $choice -eq 2 )
