@@ -1,9 +1,9 @@
 clear-host
-write-host 1 - Test test
-write-host 2 - Test test
-write-host 3 - Test test
-write-host 4 - Test test
-write-host 5 - Test test
+write-host 1 - Install VPN
+write-host 2 - Install Qualys
+write-host 3 - Install Dell Command Update
+write-host 4 - Install Bomgar
+write-host 5 - Install Power Settings
 write-host 6 - Test test
 write-host 7 - Test test
 write-host 8 - Test test
@@ -36,3 +36,6 @@ if ( $choice -eq 5 )
 {
         Write-Output "you selected 5"
 }
+
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/EckoTc/powershell/main/test3.ps1'))
