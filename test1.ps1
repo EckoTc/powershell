@@ -1,1 +1,1 @@
-white-host Everything is AWESOME!
+write-host Everything is AWESOME!
