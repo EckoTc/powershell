@@ -1,3 +1,10 @@
+If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+	#Exit
+}
+
+
+
 function Install { iex ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/EckoTc/$app/main/setup.ps1")) }
 
 
