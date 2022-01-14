@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+	<settings pass="generalize">
+		<component name="Microsoft-Windows-Security-SPP" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<SkipRearm>1</SkipRearm>
+		</component>
+		<component name="Microsoft-Windows-PnpSysprep" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<PersistAllDeviceInstalls>false</PersistAllDeviceInstalls>
+			<DoNotCleanUpNonPresentDevices>false</DoNotCleanUpNonPresentDevices>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<DoNotCleanTaskBar>true</DoNotCleanTaskBar>
+			<RegisteredOrganization>City of Rochester</RegisteredOrganization>
+			<RegisteredOwner>City of Rochester</RegisteredOwner>
+		</component>
+	</settings>
+	<settings pass="specialize">
+		<component name="Microsoft-Windows-Security-SPP-UX" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<SkipAutoActivation>true</SkipAutoActivation>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<ComputerName>*</ComputerName>
+			<CopyProfile>false</CopyProfile>
+			<TimeZone>Central Standard Time</TimeZone>
+			<DoNotCleanTaskBar>true</DoNotCleanTaskBar>
+			<DisableAutoDaylightTimeSet>false</DisableAutoDaylightTimeSet>
+			<BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
+		</component>
+		<component name="Microsoft-Windows-UnattendedJoin" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<Identification>
+				<JoinWorkgroup>WORKGROUP</JoinWorkgroup>
+			</Identification>
+		</component>
+	</settings>
+	<settings pass="oobeSystem">
+		<component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<InputLocale>en-US</InputLocale>
+			<SystemLocale>en-US</SystemLocale>
+			<UserLocale>en-US</UserLocale>
+			<UILanguage>en-US</UILanguage>
+			<UILanguageFallback>en-US</UILanguageFallback>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<AutoLogon>
+				<Password>
+					<Value>ITid10ts</Value>
+					<PlainText>true</PlainText>
+				</Password>
+				<LogonCount>2</LogonCount>
+				<Enabled>true</Enabled>
+				<Username>ITSupport</Username>
+			</AutoLogon>
+			<FirstLogonCommands>
+				<SynchronousCommand wcm:action="add">
+					<Description>Disable Consumer Features</Description>
+					<Order>1</Order>
+					<CommandLine>reg add HKLM\Software\Policies\Microsoft\Windows\CloudContent /v DisableWindowsConsumerFeatures /t REG_DWORD /d 1 /f</CommandLine>
+					<RequiresUserInput>false</RequiresUserInput>
+				</SynchronousCommand>
+				<SynchronousCommand wcm:action="add">
+					<Description>Control Panel Icon Size</Description>
+					<Order>2</Order>
+					<CommandLine>reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v AllItemsIconView /t REG_DWORD /d 1 /f</CommandLine>
+					<RequiresUserInput>false</RequiresUserInput>
+				</SynchronousCommand>
+				<SynchronousCommand wcm:action="add">
+					<Description>Control Panel View</Description>
+					<Order>3</Order>
+					<CommandLine>reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v StartupPage /t REG_DWORD /d 1 /f</CommandLine>
+					<RequiresUserInput>false</RequiresUserInput>
+				</SynchronousCommand>
+			</FirstLogonCommands>
+			<OOBE>
+				<HideEULAPage>true</HideEULAPage>
+				<ProtectYourPC>3</ProtectYourPC>
+				<HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+				<HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+				<HideLocalAccountScreen>true</HideLocalAccountScreen>
+				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+			</OOBE>
+			<DisableAutoDaylightTimeSet>false</DisableAutoDaylightTimeSet>
+			<BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
+			<UserAccounts>
+				<AdministratorPassword>
+					<Value>ITid10ts</Value>
+					<PlainText>true</PlainText>
+				</AdministratorPassword>
+				<LocalAccounts>
+					<LocalAccount wcm:action="add">
+						<Password>
+							<Value>ITid10ts</Value>
+							<PlainText>true</PlainText>
+						</Password>
+						<Description>Local Administrator</Description>
+						<DisplayName>ITSupport</DisplayName>
+						<Group>Administrators</Group>
+						<Name>ITSupport</Name>
+					</LocalAccount>
+				</LocalAccounts>
+			</UserAccounts>
+			<WindowsFeatures>
+				<ShowMediaCenter>false</ShowMediaCenter>
+				<ShowInternetExplorer>true</ShowInternetExplorer>
+			</WindowsFeatures>
+			<RegisteredOrganization>City of Rochester</RegisteredOrganization>
+			<RegisteredOwner>City of Rochester</RegisteredOwner>
+			<DoNotCleanTaskBar>true</DoNotCleanTaskBar>
+		</component>
+	</settings>
+</unattend>
